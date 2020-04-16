@@ -118,11 +118,12 @@ sudo chmod +x /usr/local/bin/docker-compose
 ### Deployment
 
 The CNO is deployed as a collection of Docker containers, utilizing docker-compose. Having cloned the
-code of this repository, and having created the .env file in *cognitive-network-optimizer* directory the following 
+code of this repository, and having created the .env file in *ss-cno-teleimmersive-game* directory the following 
 commands should be executed:
 
 ```bash
 # download code
+mv ss-cno-teleimmersive-game/ cognitive-network-optimizer/
 cd cognitive-network-optimizer
 docker-compose up -d --build
 ```
