@@ -1,0 +1,50 @@
+version: '3.6'
+volumes:
+  cno_im_data:
+  cno_im_logs:
+networks:
+  netCNO:
+    driver: bridge
+    driver_opts:
+      com.docker.network.driver.mtu: 1400
+services:
+  cno_im_postgres:
+    hostname: cno_im_postgres
+    image: postgres:${PG_IMAGE_TAG:-9.5.14}
+    restart: always
+    environment:
+      - POSTGRES_USER=${PG_USER}
+      - POSTGRES_PASSWORD=${PG_PASSWORD}
+      - POSTGRES_DB=${PG_DB}
+    volumes:
+      - cno_im_data:/var/lib/postgresql/data
+    networks:
+      - netCNO
+  cno_im_rabbit:
+    hostname: cno_im_rabbit
+    image: rabbitmq:${RMQ_IMAGE_TAG:-latest}
+    restart: always
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RMQ_USERNAME}
+      - RABBITMQ_DEFAULT_PASS=${RMQ_PASSWORD}
+    networks:
+      - netCNO
+  cno_im:
+    hostname: cno_im
+    build:
+      context: .
+      dockerfile: deployment/docker/Dockerfile
+    image: 5gmedia-cno-immersive-media
+    restart: always
+    ports:
+      - "${CNO_IM_SUPERVISOR_PORT}:3333"
+    env_file: .env
+    volumes:
+      - cno_im_logs:/opt/cognitive-network-optimizer/logs
+      - ${CNO_IM_TRAINING_FILE}:/opt/cognitive-network-optimizer/${CNO_IM_TRAINING_FILE}
+      - ${CNO_IM_RESULTS_FILE}:/opt/cognitive-network-optimizer/${CNO_IM_RESULTS_FILE}
+    depends_on:
+      - cno_im_postgres
+      - cno_im_rabbit
+    networks:
+      - netCNO

@@ -1,0 +1,75 @@
+{
+   "model": "MDP",
+   "parameters": {
+      "bitrate_on": {
+         "limits": [
+            0,
+            80,
+            160,
+            100000
+         ]
+      },
+      "framerate_aggr": {
+         "limits": [
+            0,
+            10,
+            18,
+            100
+         ]
+      },
+      "quality": {
+         "limits": [
+            0,
+            2.1,
+            3,
+            6
+         ]
+      },
+      "percentage_of_gpu_users": {
+         "limits": [
+            0,
+            0.5,
+            1
+         ]
+      },
+      "no_of_profiles_produced": {
+         "limits": [
+            0,
+            2.1,
+            4.1
+         ]
+      },
+      "mean_opinion_score": {
+         "limits": [
+            0,
+            3.5,
+            5
+         ]
+      }
+   },
+   "actions": {
+      "set_vtranscoder_client_profile": [
+         0,
+         1,
+         2,
+         3,
+         4,
+         5
+      ],
+      "no_operation": null
+   },
+   "initial_q_values": 0,
+   "discount": 0.1,
+   "update_algorithm": "prioritized_sweeping",
+   "split_error": 0.1,
+   "min_measurements": 10,
+   "reward_criterions": {
+      "cost": 0.2,
+      "qoe": 0.3,
+      "qoe_and_cost_combined": 0.2,
+      "measurements": 0.1,
+      "no_of_profiles": 0.2
+   },
+   "training_file": "training/immersive_media/immersive_media_train.txt",
+   "results_file": "results/02_03_02_01_02.txt"
+}

@@ -1,0 +1,27 @@
+{
+	"clients": [{
+		"client_id": "51542957238a46e985add0aaccef2482",
+		"timestamp": 1558084039232705,
+		"use_these_qualities": [{
+			"transcoder_id": "1",
+			"quality_id": 0,
+			"skip_frames": 0
+		}, {
+			"transcoder_id": "2",
+			"quality_id": 0,
+			"skip_frames": 0
+		}]
+	}, {
+		"client_id": 123456,
+		"timestamp": 1558084039232705,
+		"use_these_qualities": [{
+			"transcoder_id": "1",
+			"quality_id": 0,
+			"skip_frames": 0
+		}, {
+			"transcoder_id": "2",
+			"quality_id": 0,
+			"skip_frames": 0
+		}]
+	}]
+}

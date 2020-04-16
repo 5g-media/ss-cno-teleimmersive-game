@@ -1,0 +1,68 @@
+{
+   "model": "MDP",
+   "parameters": {
+      "cpu_util": {
+         "limits": [
+            0,
+            50,
+            75,
+            100
+         ]
+      },
+      "memory.usage": {
+         "limits": [
+            0,
+            50,
+            75,
+            100
+         ]
+      },
+      "disk.usage": {
+         "limits": [
+            0,
+            50,
+            75,
+            100
+         ]
+      }
+   },
+   "initial_parameters": {
+      "cpu_util": {
+         "limits": [
+            0,
+            50,
+            75,
+            100
+         ]
+      },
+      "memory.usage": {
+         "limits": [
+            0,
+            50,
+            75,
+            100
+         ]
+      },
+      "disk.usage": {
+         "limits": [
+            0,
+            50,
+            75,
+            100
+         ]
+      }
+   },
+   "actions": {
+      "add_vm": [
+         1,
+         2
+      ],
+      "no_operation": null
+   },
+   "initial_q_values": 0,
+   "discount": 0.1,
+   "update_algorithm": "prioritized_sweeping",
+   "split_error": 0.1,
+   "min_measurements": 10,
+   "reward": "measurement_based_reward"
+}

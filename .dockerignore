@@ -1,0 +1,8 @@
+/training/mobile_contribution_train.txt
+results
+.idea
+__pycache__
+/__pycache__/
+*.log
+*.log*
+*.md

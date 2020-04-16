@@ -1,0 +1,7 @@
+celery==4.3.0
+Django==1.11.24
+kafka-python==1.4.3
+numpy==1.15.4
+psycopg2-binary==2.7.5
+pytz==2018.9
+scipy==1.2.0
